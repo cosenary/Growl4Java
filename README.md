@@ -25,7 +25,7 @@ The constructor requires three arguments:
 2. An array with all **available** [notification types](#notification-types).
 3. An array with the **enabled** [notification types](#notification-types).
 
-```
+```java
 Growl growl = new Growl("Java Weather",
 	new String[]{"General", "Warnings"},
 	new String[]{"General"});
@@ -33,7 +33,7 @@ Growl growl = new Growl("Java Weather",
 
 Next, check whether Growl is available (installed and running). If this is the case, register the application.
 
-```
+```java
 if (growl.init()) {
 	growl.registerApplication();
 }
@@ -43,7 +43,7 @@ if (growl.init()) {
 
 Once our application is registered, we can start sending out messages. The first parameter of `notify` is the used [notification type](#notification-types), that has to be specified and enabled in the constructor.
 
-```
+```java
 growl.notify("General", "Weather", "Foggy");
 ```
 
@@ -51,13 +51,13 @@ growl.notify("General", "Weather", "Foggy");
 
 If you want to add a fancy icon to your message, specify it as a third parameter:
 
-```
+```java
 growl.notify("General", "Weather", "Sunny", "/Users/foo/sun.png");
 ```
 
 The icon path has to be an **absolute path**, which you can get like this:
 
-```
+```java
 File iconFile = new File("not/absolute/path/icon.png");
 iconFile.getAbsolutePath();
 ```
@@ -76,7 +76,7 @@ Notification types allow you to group your messages by their purpose. This allow
 
 The type can be changed by modifying `notify()` method's first parameter:
 
-```
+```java
 growl.notify("Warning", "Weather alert", "Thunder-storm");
 ```
 
